@@ -13,11 +13,11 @@ const CompanyWithEnrollments = () => {
     const fetchCompanyAndEnrollments = async () => {
         try {
             // Fetch company details
-            const response = await axios.get(`http://localhost:3000/api/companyowner/company/${companyId}`)
+            const response = await axios.get(`http://localhost:9999/api/companyowner/company/${companyId}`)
             setCompany(response.data);
 
             // Fetch enrollments associated with the company
-            const enrollments = await axios.get(`http://localhost:3000/api/companyowner/company/${companyId}/enrollments`);
+            const enrollments = await axios.get(`http://localhost:9999/api/companyowner/company/${companyId}/enrollments`);
             setEnrollments(enrollments.data)
         } catch (error) {
             console.error("Error fetching company or enrollment data:", error);
@@ -39,7 +39,7 @@ const CompanyWithEnrollments = () => {
 
     //todo make a handleupdate enrollment verification
     const handleUpdateEnrollmentVerify = async (enrollmentId) => {
-        const response = await axios.put(`http://localhost:3000/api/companyowner/company/${companyId}/enrollments/${enrollmentId}`, { status: "Accepted" });
+        const response = await axios.put(`http://localhost:9999/api/companyowner/company/${companyId}/enrollments/${enrollmentId}`, { status: "Accepted" });
         toast.success("Successfully verified Enrollment");
         if (response.status === 200) {
             fetchCompanyAndEnrollments();
@@ -48,7 +48,7 @@ const CompanyWithEnrollments = () => {
 
     //todo make a handleupdate enrollment denied
     const handleUpdateEnrollmentDenied = async (enrollmentId) => {
-        const response = await axios.put(`http://localhost:3000/api/companyowner/company/${companyId}/enrollments/${enrollmentId}`, { status: "Denied" });
+        const response = await axios.put(`http://localhost:9999/api/companyowner/company/${companyId}/enrollments/${enrollmentId}`, { status: "Denied" });
         toast.info("Successfully Denied Enrollment");
         if (response.status === 200) {
             fetchCompanyAndEnrollments();

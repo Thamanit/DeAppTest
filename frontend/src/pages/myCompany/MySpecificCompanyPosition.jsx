@@ -15,8 +15,8 @@ const ManagePositions = () => {
     // Fetch positions for the company
     const fetchPositions = async () => {
         try {
-            //todo get the positions for the company url should be http://localhost:3000/api/companyposition/${companyId}/positions
-           const response = await axios.get(`http://localhost:3000/api/companyposition/${companyId}/positions`) 
+            //todo get the positions for the company url should be http://localhost:9999/api/companyposition/${companyId}/positions
+           const response = await axios.get(`http://localhost:9999/api/companyposition/${companyId}/positions`) 
            setPositions(response.data)
         } catch (error) {
             console.error("Error fetching positions:", error);
@@ -38,8 +38,8 @@ const ManagePositions = () => {
         }
 
         try {
-            // todo create a new position for the company url should be http://localhost:3000/api/companyposition/${companyId}/positions
-            const response = await axios.post(`http://localhost:3000/api/companyposition/${companyId}/positions`,{name: newPosition})
+            // todo create a new position for the company url should be http://localhost:9999/api/companyposition/${companyId}/positions
+            const response = await axios.post(`http://localhost:9999/api/companyposition/${companyId}/positions`,{name: newPosition})
             fetchPositions()
         } catch (error) {
             console.error("Error creating position:", error);
@@ -56,8 +56,8 @@ const ManagePositions = () => {
     // Handle updating a position
     const handleSaveEdit = async () => {
         try {
-            // todo update the position for the company url should be http://localhost:3000/api/companyposition/${companyId}/positions/${editingId}
-            const response = await axios.put(`http://localhost:3000/api/companyposition/${companyId}/positions/${editingId}`,editingData)
+            // todo update the position for the company url should be http://localhost:9999/api/companyposition/${companyId}/positions/${editingId}
+            const response = await axios.put(`http://localhost:9999/api/companyposition/${companyId}/positions/${editingId}`,editingData)
             fetchPositions()
             setEditingId(null);
         } catch (error) {
@@ -75,8 +75,8 @@ const ManagePositions = () => {
     // Handle deleting a position
     const handleDeletePosition = async (positionId) => {
         try {
-            // todo delete the position for the company url should be http://localhost:3000/api/companyposition/${companyId}/positions/${positionId}
-            const response = await axios.delete(`http://localhost:3000/api/companyposition/${companyId}/positions/${positionId}`)
+            // todo delete the position for the company url should be http://localhost:9999/api/companyposition/${companyId}/positions/${positionId}
+            const response = await axios.delete(`http://localhost:9999/api/companyposition/${companyId}/positions/${positionId}`)
             fetchPositions()
         } catch (error) {
             console.error("Error deleting position:", error);

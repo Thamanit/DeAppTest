@@ -12,7 +12,7 @@ const MyCompany = () => {
     useEffect(() => {
         const fetchCompanies = async () => {
             // todo - fetch companies associated with the logged in user /api/companyowner/companies
-            const response = await axios.get(`http://localhost:3000/api/companyowner/companies`);
+            const response = await axios.get(`http://localhost:9999/api/companyowner/companies`);
             setCompanies(response.data);
             setLoading(false);
         };

@@ -13,7 +13,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.VITE_API_URL || 'http://localhost:8800/api', // Replace with your actual API URL
+        target: process.env.VITE_API_URL || 'http://localhost:9999/api', // Replace with your actual API URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Optional: Remove /api prefix
       },

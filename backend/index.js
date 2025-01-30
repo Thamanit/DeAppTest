@@ -30,7 +30,7 @@ mongoose.connection.on("disconnected", () => {
 //middlewares
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:9999'],
     credentials: true
   })
 );
@@ -53,7 +53,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(8800, () => {
+app.listen(4400, () => {
   connect();
   console.log("Connected to backend.");
 });
